@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - uses: actions/checkout@v4
+    - name: Login to Quay.io
+      run: docker login -u="thomasvoae+thomasvanopstal" -p="BFL5WTQYRAV2E37OKFH1N0B35C3D3EW851474KJDM1ITWOW5I55E2A37QJ7OCDT8" quay.io
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag test-workshop:$(date +%s)
+    - name: push docker image 
+      run: docker push quay.io/thomasvoae/new

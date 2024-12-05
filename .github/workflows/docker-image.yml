@@ -18,6 +18,6 @@ jobs:
     - name: Login to Quay.io
       run: docker login -u="thomasvoae+thomasvanopstal" -p="BFL5WTQYRAV2E37OKFH1N0B35C3D3EW851474KJDM1ITWOW5I55E2A37QJ7OCDT8" quay.io
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag test-workshop:$(date +%s)
+      run: docker build . --file Dockerfile --tag  quay.io/thomasvoae/new
     - name: push docker image 
       run: docker push quay.io/thomasvoae/new

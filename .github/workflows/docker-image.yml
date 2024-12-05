@@ -20,4 +20,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag test-workshop:$(date +%s)
     - name: push docker image 
-      run: docker push quay.io/thomasvoae/new:test-workshop:$(date +%s)
+      run: docker image push quay.io/thomasvoae/new:test-workshop:$(date +%s)
